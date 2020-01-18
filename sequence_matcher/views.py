@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
+from alignment import align
 
 def sequence_matcher(request):
     return render(request, 'sequence_matcher.html', {})
