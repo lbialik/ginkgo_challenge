@@ -1,4 +1,5 @@
 <form action="submit" method="post">Sequence:
+    {% csrf_token %}
     <input type="text" name="info">
     <input type="submit" value="Submit">
 </form>
