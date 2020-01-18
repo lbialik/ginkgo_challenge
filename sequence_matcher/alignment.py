@@ -9,6 +9,7 @@ def align(argv):
         index = protein.find(sequence)
         if index > -1:
             return protein, index
+    return None, -1
 
 if __name__ == "__main__":
     print(align(sys.argv))
