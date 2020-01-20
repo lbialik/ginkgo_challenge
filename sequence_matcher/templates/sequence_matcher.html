@@ -1,5 +1,27 @@
-<form action="submit" method="post">Sequence:
-    {% csrf_token %}
-    <input type="text" name="info">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sequence Finder</title>
+</head>
+<body>
+    <h1>Sequence Finder</h1>
+    <form action="" method="post">Sequence:
+        {% csrf_token %}
+        <input type="text" name="info">
+        <input type="submit" value="Submit">
+    </form>
+    <p>
+        {% for sequence in sequences %}
+            <p>
+            {{ sequence.title}}
+            {{ sequence.protein }}
+            {{ sequence.index }}
+            </p>
+        {% endfor %}
+    </p>
+</body>
+</html>
+
+
+

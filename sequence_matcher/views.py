@@ -2,17 +2,15 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from .alignment import align
 from .models import Sequence
+from django.utils import timezone
 
 def sequence_matcher(request):
-    return render(request, 'sequence_matcher.html', {})
-
-def submit(request):
     if request.method == 'POST':
-        sequence = request.POST.get('info', None)
+        sequence = request.POST.get('info', None).upper()
         protein, index = align(sequence)
-        seq = Sequence()
-        seq.index = index
-        seq.protein = protein
-        seq.title = sequence
+        seq, created = Sequence.objects.get_or_create(title = sequence, index = index, protein = protein)
+        seq.timestamp = timezone.now()
         seq.save()
-    return render(request, 'sequence_matcher.html', {})
+    data = Sequence.objects.all().order_by('timestamp').reverse()
+    sequence_dict = {'sequences':data}
+    return render(request, 'sequence_matcher.html', sequence_dict)
