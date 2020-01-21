@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Sequence Finder</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h1>Sequence Finder</h1>
@@ -13,11 +18,21 @@
     </form>
     <p>
         {% for sequence in sequences %}
-            <p>
-            {{ sequence.title}}
-            {{ sequence.protein }}
-            {{ sequence.index }}
-            </p>
+            <br/>
+            <table>
+                <tr>
+                    <th>Sequence</th>
+                    <td>{{ sequence.title}}</td>
+                </tr>
+                <tr>
+                    <th>Protein</th>
+                    <td>{{ sequence.protein }}</td>
+                </tr>
+                <tr>
+                    <th>Index</th>
+                    <td>{{ sequence.index }}</td>
+                </tr>
+            </table>
         {% endfor %}
     </p>
 </body>
