@@ -8,6 +8,9 @@ def sequence_matcher(request):
     if request.method == 'POST':
         sequence = request.POST.get('info', None).upper()
         protein, index = align(sequence)
+        if index == -1:
+            protein = 'Not Found'
+            index = ''
         seq, created = Sequence.objects.get_or_create(title = sequence, index = index, protein = protein)
         seq.timestamp = timezone.now()
         seq.save()
