@@ -1,7 +1,5 @@
 # ginkgo_challenge
 
-# dadbot
-
 ## Description
 
 A web app that finds a dna sequence's location in proteins.
