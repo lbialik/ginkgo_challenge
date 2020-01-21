@@ -1,1 +1,1 @@
-web: python manage.py migrate; python manage.py runserver
+C:\Users\XPS\projects\ginkgo\ginkgo_challenge\wsgi.py
